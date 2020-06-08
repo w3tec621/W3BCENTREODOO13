@@ -10,3 +10,4 @@ class Partner(models.Model):
     razon_social  = fields.Char('Razón Social', size=128, required=True)
     ext_w3 = fields.Char('Ext W3')
     codigo_w3 = fields.Char('Código W3')
+    
