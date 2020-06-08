@@ -13,6 +13,9 @@
                 <!-- <field name="ext_w3"/> -->
                 <field name="como_contestar"/>
                 <field name="notas_w3"/>
+                <field name="fecha_creacion"/>
+                <field name="fecha_aniversario"/>
+                <field name="fecha_constitucion"/>
             </xpath>
             </field>
 		</record>
