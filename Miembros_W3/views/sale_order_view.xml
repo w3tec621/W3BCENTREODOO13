@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- términos y condiciones W3BCentre-->
+        <record id="sale_order_view_form2_inh" model="ir.ui.view">
+            <field name="name">sale.order.inherit.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="terminos_condiciones_w3" string="Términos/condiciones W3"/>
+            </xpath>
+            </field>
+            </record>
+    </data>
+</odoo>
