@@ -13,4 +13,4 @@ class Partner(models.Model):
     fecha_creacion = fields.Date('Ingreso a W3')
     fecha_aniversario = fields.Date('Aniversario/Cumpleaños')
     fecha_constitucion = fields.Date('Constitución de la Empresa')
-    vat = fields.Char(string="NIT")
+    vat = fields.Char('NIT')
