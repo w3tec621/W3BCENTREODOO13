@@ -9,6 +9,7 @@
             <field name="arch" type="xml">
             <xpath expr="//field[@name='partner_id']" position="after">
                 <field name="terminos_condiciones_w3" string="Términos/condiciones W3"/>
+                <field name="ocultar_total"/>
             </xpath>
             </field>
             </record>
