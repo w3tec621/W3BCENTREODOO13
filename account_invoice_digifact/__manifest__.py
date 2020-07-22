@@ -17,6 +17,7 @@
         'views/satdte_frases.xml',
         'views/account_journal_views.xml',
         'views/satdte_frases_data.xml',
+        'wizard/wizard_cancel_view.xml',
     ],
     'license': 'LGPL-3',
     'installable': True,

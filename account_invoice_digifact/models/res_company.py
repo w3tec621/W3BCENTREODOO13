@@ -9,21 +9,10 @@ from odoo.exceptions import UserError
 class ResCompany(models.Model):
     _inherit = 'res.company'
 
-    # Associated regime of VAT in Guatemala. Necessary initials for communication with FEL. In case of doubt, refer to official documentation of the Superintendency of Tax Administration.
-    regimen_iva = fields.Char(string='Regimen asociado de IVA',  # Associated VAT regime
-                              help='Regimen asociado de IVA en Guatemala. Iniciales necearias para comunicacion con FEL. En caso de duda, referirse a documentacion oficial de la Superintendencia de Administracion Tributaria.')
-
-    # Number of the establishment where the document is issued. It is the one that is assigned by SAT in its records.
-    codigo_est = fields.Char(string='Codigo Establecimiento',  # Establishment Code
-                             help='Número del establecimiento donde se emite el documento. Es el que aparece asignado por SAT en sus registros.')
-
-    # Name or abbreviation Number of the establishment where the document is issued. It is the one that is assigned by SAT in its records.
-    nombre_est = fields.Char(string='Nombre de Establecimiento',  # Establishment Name
-                             help='Nombre o abreviatura Número del establecimiento donde se emite el documento. Es el que aparece asignado por SAT en sus registros.')
-
-    # Indicates the commercial name of the establishment (according to tax records) where the document is issued.
-    nombre_comercial = fields.Char(string='Nombre Comercial',  # Tradename
-                                   help='Indica el nombre comercial del establecimiento (de acuerdo a los registros tributarios) donde se emite el documento.')
+    regimen_iva = fields.Char(string='Regimen asociado de IVA', help='Regimen asociado de IVA en Guatemala. Iniciales necearias para comunicacion con FEL. En caso de duda, referirse a documentacion oficial de la Superintendencia de Administracion Tributaria.')
+    codigo_est = fields.Char(string='Codigo Establecimiento', help='Número del establecimiento donde se emite el documento. Es el que aparece asignado por SAT en sus registros.')
+    nombre_est = fields.Char(string='Nombre de Establecimiento', help='Nombre o abreviatura Número del establecimiento donde se emite el documento. Es el que aparece asignado por SAT en sus registros.')
+    nombre_comercial = fields.Char(string='Nombre Comercial', help='Indica el nombre comercial del establecimiento (de acuerdo a los registros tributarios) donde se emite el documento.')
     #Credentials DigiFact
     username = fields.Char('Usuario')
     password = fields.Char('Contraseña')
@@ -45,7 +34,6 @@ class ResCompany(models.Model):
             if not rec.vat:
                 raise UserError(('La empresa %s no tiene numero de NIT parametrizado') %(rec.name))
             nit = self.generate_nit(rec.vat)
-            #raise UserError(('%s') %(nit))
             res = {
                 "Username": "%s.%s.%s" %("GT", nit, rec.username),
                 "Password": rec.password,
@@ -68,10 +56,8 @@ class ResCompany(models.Model):
         res_nit = ""
         if nit:
             leght_nit = len(nit)
-            #print(leght_nit)
             if leght_nit < 12:
                 diff = 12 - leght_nit
-                #print(diff)
                 while diff > 0:
                     qty_zero += "0"
                     diff -= 1
