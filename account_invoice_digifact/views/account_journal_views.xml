@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_account_journal_digifact_form" model="ir.ui.view">
+        <field name="name">account.journal.digifact.form</field>
+        <field name="model">account.journal</field>
+        <field name="inherit_id" ref="account.view_account_journal_form"/>
+        <field name="arch" type="xml">
+            <field name="code" position="before">
+                <field name="is_fel"/>
+                <field name="codigo_est" attrs="{'invisible': [('is_fel', '=', False)], 'required': [('is_fel', '=', True)]}"/>
+                 <field name="factura_cambiaria"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>
