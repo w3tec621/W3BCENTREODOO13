@@ -21,9 +21,9 @@ class ResCompany(models.Model):
     token_access = fields.Text('Token')
     date_due = fields.Date('Expira')
     company_nit = fields.Char('Nit Autorizado')
-    url_token = fields.Text('Url Token', default="https://felgtaws.digifact.com.gt/felapi/api/login/get_token")
-    url_request = fields.Text('Url Firmado', default="https://felgtaws.digifact.com.gt/felapi/api/FELRequest")
-    url_cancel = fields.Text('Url Anulacion', default="https://felgtaws.digifact.com.gt/felapi/api/FELRequest")
+    url_token = fields.Text('Url Token', default="https://felgttestaws.digifact.com.gt/felapi/api/login/get_token")
+    url_request = fields.Text('Url Firmado', default="https://felgttestaws.digifact.com.gt/felapi/api/FELRequest")
+    url_cancel = fields.Text('Url Anulacion', default="https://felgttestaws.digifact.com.gt/felapi/api/FELRequest")
 
     def action_get_token(self):
         for rec in self:

@@ -484,9 +484,9 @@ class AccountInvoice(models.Model):
     def GenerateXML_FACT(self, data={}):
 
         fe = Element('dte:GTDocumento')
-        fe.set('xmlns:dte', 'http://www.sat.gob.gt/dte/fel/0.1.0')
+        fe.set('xmlns:dte', 'http://www.sat.gob.gt/dte/fel/0.2.0')
         fe.set('xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance')
-        fe.set('Version', '0.4')
+        fe.set('Version', '0.1')
 
         sat = SubElement(fe, 'dte:SAT')
         sat.set('ClaseDocumento', 'dte')
@@ -621,18 +621,10 @@ class AccountInvoice(models.Model):
     def GenerateXML_NCRE(self, data={}):
 
         fe = Element('dte:GTDocumento')
-        fe.set('xmlns:dte', 'http://www.sat.gob.gt/dte/fel/0.1.0')
-        fe.set('xmlns:ds', 'http://www.w3.org/2000/09/xmldsig#')
-        fe.set('xmlns:n1', 'http://www.altova.com/samplexml/other-namespace')
+        fe.set('xmlns:dte', 'http://www.sat.gob.gt/dte/fel/0.2.0')
         fe.set('xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance')
-        fe.set('Version', '0.4')
-
-        fe.set('xmlns:xd', 'http://www.w3.org/2000/09/xmldsig#')
-        fe.set('xmlns:cfc', 'http://www.sat.gob.gt/dte/fel/CompCambiaria/0.1.0')
-        fe.set('xmlns:cex', 'http://www.sat.gob.gt/face2/ComplementoExportaciones/0.1.0')
-        fe.set('xmlns:cfe', 'http://www.sat.gob.gt/face2/ComplementoFacturaEspecial/0.1.0')
-        fe.set('xmlns:cno', 'http://www.sat.gob.gt/face2/ComplementoReferenciaNota/0.1.0')
-
+        fe.set('Version', '0.1')
+        
         sat = SubElement(fe, 'dte:SAT')
         sat.set('ClaseDocumento', 'dte')
 
