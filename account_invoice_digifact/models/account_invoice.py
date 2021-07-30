@@ -20,6 +20,9 @@ from odoo.tools.translate import _
 
 import os  
 
+import logging
+
+_logger = logging.getLogger( __name__ )
 
 class AccountInvoice(models.Model):
     _inherit = 'account.move'
@@ -392,6 +395,7 @@ class AccountInvoice(models.Model):
             result = self.generate_xml()
             if self.type in ['out_invoice', 'in_invoice'] and self.journal_id.factura_cambiaria == False:
                 xml = self.GenerateXML_FACT(result)
+                _logger.info(xml.decode('utf-8'))
                 #raise UserError(('%s') %(xml.decode('utf-8')))
                 #print(str(xml.decode('iso-8859-15').encode('utf8')))
             elif self.type in ['out_refund', 'in_refund']:
@@ -423,6 +427,7 @@ class AccountInvoice(models.Model):
             except Exception as e:
                 raise Warning(('%s') %(e))
             if response and response.status_code == 200:
+                _logger.info(response)
                 json_res = json.loads(response.content.decode("utf-8"))
                 self.write({
                     'xml_request': xml_dte.encode('iso-8859-15').decode('utf-8'),
