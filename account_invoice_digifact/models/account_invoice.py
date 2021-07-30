@@ -443,6 +443,7 @@ class AccountInvoice(models.Model):
                     'file_xml': base64.decodebytes(base64.b64encode(str(json_res.get('ResponseDATA1', '')).encode('utf-8'))),
                 })
             elif response.status_code != 200:
+                _logger.info(response.content.decode("utf-8"))
                 json_res = json.loads(response.content.decode("utf-8"))
                 msg = ""
                 errors = json_res.get('ResponseDATA1', '')
